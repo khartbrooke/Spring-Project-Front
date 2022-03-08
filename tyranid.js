@@ -8,9 +8,9 @@ let createTyranid = async () => {
         },
         body: JSON.stringify( 
             {
-                "name": "Hive Tyrant",
-                "hiveFleet": "Leviathan",
-                "points": "390"
+                "name": tyranidName.value,
+                "hiveFleet": hiveFleet.value,
+                "points": points.value
             }
         )
     })
