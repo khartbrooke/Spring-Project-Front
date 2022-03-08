@@ -11,19 +11,28 @@
 <body onload="showTyranids()">
     <form>
         <div class="dataDiv">
-            <div class="container">
-                <br>
-                <h2>Tyranids</h2>
-                <br>
-                <p id="dataPara">No data</p>
-            </div>
+            <br>
+            <h2>Tyranids</h2>
+            <br>
+
             Name:<input type="text" id="tyranidName"><br>
             Hive Fleet:<input type="text" id="hiveFleet"><br>
             Points:<input type="text" id="points"><br>
-
             <input type="button" id="create" value="Create" onclick="createTyranid()">
+
+            <div class="container">
+                <p id="dataPara">No data</p>
+            </div>
+        </div>
     </form>
-    </div>
+
+    <span id="updateTyranidBox" style="visibility:hidden">
+        Name:<input type="text" id="updateName"><br>
+        Hive Fleet:<input type="text" id="updateHiveFleet"><br>
+        Points:<input type="text" id="updatePoints"><br>
+        <input type="button" id="cancel" value="Cancel" onclick="cancelUpdate()">
+        <input type="button" id="save" value="Save changes" onclick="saveUpdate()">
+    </span>
 
     <script type="text/javascript" src="./tyranid.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
