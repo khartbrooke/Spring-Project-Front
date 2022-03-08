@@ -17,6 +17,8 @@ let createTyranid = async () => {
         .then(res => res.json())
         .then((data) => console.log(`Request succeeded with JSON response ${data}`))
         .catch((error) => console.log(`Request failed ${error}`))
+
+        showTyranids
 }
 
 let getTyranids = async () => {
@@ -43,19 +45,50 @@ let showTyranids = async () => {
 
 function printTyranids(value) {
     let div = document.createElement("div")
-    div.innerHTML = `Name: ${value.name}, HiveFleet: ${value.hiveFleet}, Points: ${value.points}, <input type="button" value="Update"> <input type="button" value="Delete" onclick="deleteTyranid(${value.id})">`;
+    div.innerHTML = `Name: ${value.name}, HiveFleet: ${value.hiveFleet}, Points: ${value.points}, <input type="button" value="Edit" onclick="showUpdate(${value.id})"> <input type="button" value="Delete" onclick="deleteTyranid(${value.id})">`;
     paragraphToSelect.append(div);
 }
 
+let updateId = 0
+
+function showUpdate(id) {
+    updateId = id
+    updateTyranidBox.style.visibility = "visible"
+}
+
+function cancelUpdate() {
+    updateTyranidBox.style.visibility = "hidden"
+}
+
+function saveUpdate() {
+    fetch("http://localhost:8080/replace/" + updateId, {
+        method: 'put',
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify(
+            {
+                "name": updateName.value,
+                "hiveFleet": updateHiveFleet.value,
+                "points": updatePoints.value
+            }
+        )
+    })
+        .then(res => res.json())
+        .then((data) => console.log(`Request succeeded with JSON response ${data}`))
+        .catch((error) => console.log(`Request failed ${error}`))
+};
+
+
 function deleteTyranid(id) {
-    fetch("http://localhost:8080/remove/"+id, { 
-        method: 'delete' 
-      })
-      .then((data) => {
-        console.log(`Request succeeded with JSON response ${data}`);
-        // some function to execute if successful
-      })
-      .catch((error) => {
-        //some function to execute if error
-      });
+    fetch("http://localhost:8080/remove/" + id, {
+        method: 'delete'
+    })
+        .then((data) => {
+            console.log(`Request succeeded with JSON response ${data}`);
+            // some function to execute if successful
+        })
+        .catch((error) => {
+            //some function to execute if error
+        });
 }
