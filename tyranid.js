@@ -16,9 +16,8 @@ let createTyranid = async () => {
     })
         .then(res => res.json())
         .then((data) => console.log(`Request succeeded with JSON response ${data}`))
-        .catch((error) => console.log(`Request failed ${error}`))
-
-        showTyranids
+        .then(this.showTyranids)
+        .catch((error) => console.log(`Request failed ${error}`))        
 }
 
 let getTyranids = async () => {
