@@ -16,11 +16,11 @@ let createTyranid = async () => {
     })
         .then(res => res.json())
         .then((data) => console.log(`Request succeeded with JSON response ${data}`))
-        .then(this.showTyranids)
+        .then(() => {this.showTyranids()})
         .catch((error) => console.log(`Request failed ${error}`))        
 }
 
-let getTyranids = async () => {
+async function getTyranids() {
     let response = await fetch('http://localhost:8080/getAll');
     if (response.status !== 200) {
         throw new Error("Request has failed!");
@@ -34,7 +34,7 @@ let getTyranids = async () => {
 
 const paragraphToSelect = document.querySelector("#dataPara");
 
-let showTyranids = async () => {
+async function showTyranids() {
     let returnedData = await getTyranids();
     //Adding additional clear to remove "no data shown about output"
     paragraphToSelect.innerHTML = "";
@@ -59,7 +59,7 @@ function cancelUpdate() {
     updateTyranidBox.style.visibility = "hidden"
 }
 
-function saveUpdate() {
+let saveUpdate = async () => {
     fetch("http://localhost:8080/replace/" + updateId, {
         method: 'put',
         headers: {
@@ -75,11 +75,13 @@ function saveUpdate() {
     })
         .then(res => res.json())
         .then((data) => console.log(`Request succeeded with JSON response ${data}`))
+        .then(() => {this.showTyranids()})
+        .then(() => {this.cancelUpdate()})
         .catch((error) => console.log(`Request failed ${error}`))
 };
 
 
-function deleteTyranid(id) {
+let deleteTyranid = async (id) => {
     fetch("http://localhost:8080/remove/" + id, {
         method: 'delete'
     })
@@ -87,6 +89,7 @@ function deleteTyranid(id) {
             console.log(`Request succeeded with JSON response ${data}`);
             // some function to execute if successful
         })
+        .then(() => {this.showTyranids()})
         .catch((error) => {
             //some function to execute if error
         });
