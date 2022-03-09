@@ -44,6 +44,7 @@ async function showTyranids() {
 
 function printTyranids(value) {
     let div = document.createElement("div")
+    div.class = "dataEntry"
     div.innerHTML = `Name: ${value.name}, HiveFleet: ${value.hiveFleet}, Points: ${value.points}, <input type="button" value="Edit" onclick="showUpdate(${value.id})"> <input type="button" value="Delete" onclick="deleteTyranid(${value.id})">`;
     paragraphToSelect.append(div);
 }

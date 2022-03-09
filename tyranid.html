@@ -12,15 +12,28 @@
 <body onload="showTyranids()">
     <form>
         <div class="title">
-            <br>
             <h2>Tyranids</h2>
-            <br>
         </div>
-        <div>
-            Name:<input type="text" id="tyranidName"><br>
-            Hive Fleet:<input type="text" id="hiveFleet"><br>
-            Points:<input type="text" id="points"><br>
+        <div class="dataInput">
+            Name:<br>
+            <input type="text" id="tyranidName"><br>
+            Hive Fleet:<br>
+            <select id="hiveFleet">
+                <option>--Please select--</option>
+                <option>Behemoth</option>
+                <option>Kraken</option>
+                <option>Leviathan</option>
+                <option>Gorgon</option>
+                <option>Jormungandr</option>
+                <option>Hydra</option>
+                <option>Kronos</option>
+            </select><br>
+            Points:<br>
+            <input type="text" id="points"><br>
             <input type="button" id="create" value="Create" onclick="createTyranid()">
+        </div>
+        <div class="spacer">
+            &nbsp;
         </div>
         <div class="container">
             <p id="dataPara">No data</p>
@@ -28,10 +41,22 @@
 
     </form>
 
-    <span id="updateTyranidBox" style="visibility:hidden">
-        Name:<input type="text" id="updateName"><br>
-        Hive Fleet:<input type="text" id="updateHiveFleet"><br>
-        Points:<input type="text" id="updatePoints"><br>
+    <span class="updateBox" id="updateTyranidBox" style="visibility:hidden">
+        Name:<br>
+        <input type="text" id="updateName"><br>
+        Hive Fleet:<br>
+        <select id="updateHiveFleet">
+            <option>--Please select--</option>
+            <option>Behemoth</option>
+            <option>Kraken</option>
+            <option>Leviathan</option>
+            <option>Gorgon</option>
+            <option>Jormungandr</option>
+            <option>Hydra</option>
+            <option>Kronos</option>
+        </select><br>
+        Points:<br>
+        <input type="text" id="updatePoints"><br>
         <input type="button" id="cancel" value="Cancel" onclick="cancelUpdate()">
         <input type="button" id="save" value="Save changes" onclick="saveUpdate()">
     </span>
