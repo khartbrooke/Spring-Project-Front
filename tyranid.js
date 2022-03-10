@@ -1,6 +1,42 @@
 'use strict'
 
 let createTyranid = async () => {
+    if (tyranidName.value == "") {
+        noName.style.visibility = "visible"
+        if (hiveFleet.value == "--Please select--") {
+            noHiveFleet.style.visibility = "visible"
+        } else {
+            noHiveFleet.style.visibility = "hidden"
+        }
+        if (points.value == "") {
+            noPoints.style.visibility = "visible"
+        } else {
+            noPoints.style.visibility = "hidden"
+        }
+        return
+    } else {
+        noName.style.visibility = "hidden"
+    }
+
+    if (hiveFleet.value == "--Please select--") {
+        noHiveFleet.style.visibility = "visible"
+        if (points.value == "") {
+            noPoints.style.visibility = "visible"
+        } else {
+            noPoints.style.visibility = "hidden"
+        }
+        return
+    } else {
+        noHiveFleet.style.visibility = "hidden"
+    }
+
+    if (points.value == "") {
+        noPoints.style.visibility = "visible"
+        return
+    } else {
+        noPoints.style.visibility = "hidden"
+    }
+
     fetch("http://localhost:8080/create", {
         method: 'post',
         headers: {
@@ -16,8 +52,18 @@ let createTyranid = async () => {
     })
         .then(res => res.json())
         .then((data) => console.log(`Request succeeded with JSON response ${data}`))
-        .then(() => {this.showTyranids()})
-        .catch((error) => console.log(`Request failed ${error}`))        
+        .then(() => { this.showTyranids() })
+        .then(() => { this.resetCreate() })
+        .catch((error) => console.log(`Request failed ${error}`))
+}
+
+function resetCreate() {
+    noName.style.visibility = "hidden"
+    noHiveFleet.style.visibility = "hidden"
+    noPoints.style.visibility = "hidden"
+    tyranidName.value = ""
+    hiveFleet.value = "--Please select--"
+    points.value = ""
 }
 
 async function getTyranids() {
@@ -58,9 +104,55 @@ function showUpdate(id) {
 
 function cancelUpdate() {
     updateTyranidBox.style.visibility = "hidden"
+    resetUpdate()
+}
+
+function resetUpdate() {
+    noUpdateName.style.visibility = "hidden"
+    noUpdateHiveFleet.style.visibility = "hidden"
+    noUpdatePoints.style.visibility = "hidden"
+    updateName.value = ""
+    updateHiveFleet.value = "--Please select--"
+    updatePoints.value = ""
 }
 
 let saveUpdate = async () => {
+    if (updateName.value == "") {
+        noUpdateName.style.visibility = "visible"
+        if (updateHiveFleet.value == "--Please select--") {
+            noUpdateHiveFleet.style.visibility = "visible"
+        } else {
+            noUpdateHiveFleet.style.visibility = "hidden"
+        }
+        if (updatePoints.value == "") {
+            noUpdatePoints.style.visibility = "visible"
+        } else {
+            noUpdatePoints.style.visibility = "hidden"
+        }
+        return
+    } else {
+        noUpdateName.style.visibility = "hidden"
+    }
+
+    if (updateHiveFleet.value == "--Please select--") {
+        noUpdateHiveFleet.style.visibility = "visible"
+        if (updatePoints.value == "") {
+            noUpdatePoints.style.visibility = "visible"
+        } else {
+            noUpdatePoints.style.visibility = "hidden"
+        }
+        return
+    } else {
+        noUpdateHiveFleet.style.visibility = "hidden"
+    }
+
+    if (updatePoints.value == "") {
+        noUpdatePoints.style.visibility = "visible"
+        return
+    } else {
+        noUpdatePoints.style.visibility = "hidden"
+    }
+
     fetch("http://localhost:8080/replace/" + updateId, {
         method: 'put',
         headers: {
@@ -76,8 +168,8 @@ let saveUpdate = async () => {
     })
         .then(res => res.json())
         .then((data) => console.log(`Request succeeded with JSON response ${data}`))
-        .then(() => {this.showTyranids()})
-        .then(() => {this.cancelUpdate()})
+        .then(() => { this.showTyranids() })
+        .then(() => { this.cancelUpdate() })
         .catch((error) => console.log(`Request failed ${error}`))
 };
 
@@ -90,7 +182,7 @@ let deleteTyranid = async (id) => {
             console.log(`Request succeeded with JSON response ${data}`);
             // some function to execute if successful
         })
-        .then(() => {this.showTyranids()})
+        .then(() => { this.showTyranids() })
         .catch((error) => {
             //some function to execute if error
         });
