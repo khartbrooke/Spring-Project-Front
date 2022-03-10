@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tyranids</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body onload="showTyranids()">
+    <form>
+        <div class="title">
+            <h2>Tyranids</h2>
+        </div>
+        <div class="dataInput">
+            Name:<br>
+            <input type="text" id="tyranidName">
+            <span id="noName" style="color:darkred; visibility:hidden">**No name</span><br>
+            Hive Fleet:<br>
+            <select id="hiveFleet">
+                <option>--Please select--</option>
+                <option>Behemoth</option>
+                <option>Kraken</option>
+                <option>Leviathan</option>
+                <option>Gorgon</option>
+                <option>Jormungandr</option>
+                <option>Hydra</option>
+                <option>Kronos</option>
+            </select>
+            <span id="noHiveFleet" style="color:darkred; visibility:hidden">**No hive fleet</span><br>
+            Points:<br>
+            <input type="text" id="points"><br>
+            <input type="button" id="create" value="Create" onclick="createTyranid()">            
+            <span id="noPoints" style="color:darkred; visibility:hidden">**No points</span>
+        </div>
+        <div class="spacer">
+            &nbsp;
+        </div>
+        <div class="container">
+            <p id="dataPara">No data</p>
+        </div>
+
+    </form>
+
+    <span class="updateBox" id="updateTyranidBox" style="visibility:hidden">
+        Name:<br>
+        <input type="text" id="updateName">
+        <span id="noUpdateName" style="color:darkred; visibility:hidden">**No name</span><br>
+        Hive Fleet:<br>
+        <select id="updateHiveFleet">
+            <option>--Please select--</option>
+            <option>Behemoth</option>
+            <option>Kraken</option>
+            <option>Leviathan</option>
+            <option>Gorgon</option>
+            <option>Jormungandr</option>
+            <option>Hydra</option>
+            <option>Kronos</option>
+        </select>
+        <span id="noUpdateHiveFleet" style="color:darkred; visibility:hidden">**No hive fleet</span><br>
+        Points:<br>
+        <input type="text" id="updatePoints">            
+        <span id="noUpdatePoints" style="color:darkred; visibility:hidden">**No points</span><br>
+        <input type="button" id="cancel" value="Cancel" onclick="cancelUpdate()">
+        <input type="button" id="save" value="Save changes" onclick="saveUpdate()">
+    </span>
+
+    <script type="text/javascript" src="./tyranid.js"></script>
+</body>
+
+</html>

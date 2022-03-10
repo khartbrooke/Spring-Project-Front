@@ -1,0 +1,84 @@
+body{
+    margin:0;
+    padding:0;
+}
+
+.title{
+    position: fixed;
+    height: 75px;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:larger;
+    text-align: center;
+    background: rgb(27,26,26);
+    background: linear-gradient(142deg, rgba(27,26,26,1) 0%, rgba(40,39,39,1) 40%, rgba(89,87,87,1) 100%);
+}
+
+
+.dataInput{
+    color:#F5F5F5;
+    font-family: Arial, Helvetica, sans-serif;
+    position: fixed;
+    top: 75px;
+    float: left;
+    width: 20%;
+    height: 100vh;
+    text-align: left;
+    background-image: linear-gradient(
+        180deg,
+        hsl(280deg 100% 13%) 0%,
+        hsl(282deg 99% 14%) 9%,
+        hsl(283deg 99% 15%) 18%,
+        hsl(284deg 98% 16%) 27%,
+        hsl(285deg 98% 18%) 36%,
+        hsl(285deg 99% 21%) 45%,
+        hsl(284deg 100% 25%) 55%,
+        hsl(284deg 100% 29%) 64%,
+        hsl(284deg 100% 32%) 73%,
+        hsl(284deg 100% 34%) 82%,
+        hsl(284deg 99% 36%) 91%,
+        hsl(284deg 99% 38%) 100%
+    );
+}
+
+.spacer
+{
+    width: 100%;
+    height: 75px;
+}
+
+.container{
+    float: right;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    width: 80%;
+    min-height: 100vh;
+}
+
+.dataEntry{
+    border: 2px solid;
+}
+
+.updateBox{
+    border: 2px solid #9932CC;
+    padding: 20px;
+    border-radius: 25px;
+    position:fixed;
+    left:40%;
+    top:40%;   
+    background-image: linear-gradient(
+        135deg,
+        hsl(0deg 0% 63%) 0%,
+        hsl(344deg 0% 68%) 10%,
+        hsl(344deg 0% 72%) 20%,
+        hsl(344deg 0% 77%) 29%,
+        hsl(0deg 0% 81%) 38%,
+        hsl(0deg 1% 84%) 47%,
+        hsl(0deg 2% 87%) 56%,
+        hsl(0deg 3% 90%) 65%,
+        hsl(0deg 2% 85%) 73%,
+        hsl(0deg 1% 77%) 82%,
+        hsl(0deg 0% 70%) 91%,
+        hsl(0deg 0% 62%) 100%
+    ); 
+}
