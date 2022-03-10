@@ -16,7 +16,8 @@
         </div>
         <div class="dataInput">
             Name:<br>
-            <input type="text" id="tyranidName"><br>
+            <input type="text" id="tyranidName">
+            <span id="noName" style="color:darkred; visibility:hidden">**No name</span><br>
             Hive Fleet:<br>
             <select id="hiveFleet">
                 <option>--Please select--</option>
@@ -27,10 +28,12 @@
                 <option>Jormungandr</option>
                 <option>Hydra</option>
                 <option>Kronos</option>
-            </select><br>
+            </select>
+            <span id="noHiveFleet" style="color:darkred; visibility:hidden">**No hive fleet</span><br>
             Points:<br>
             <input type="text" id="points"><br>
-            <input type="button" id="create" value="Create" onclick="createTyranid()">
+            <input type="button" id="create" value="Create" onclick="createTyranid()">            
+            <span id="noPoints" style="color:darkred; visibility:hidden">**No points</span>
         </div>
         <div class="spacer">
             &nbsp;
@@ -43,7 +46,8 @@
 
     <span class="updateBox" id="updateTyranidBox" style="visibility:hidden">
         Name:<br>
-        <input type="text" id="updateName"><br>
+        <input type="text" id="updateName">
+        <span id="noUpdateName" style="color:darkred; visibility:hidden">**No name</span><br>
         Hive Fleet:<br>
         <select id="updateHiveFleet">
             <option>--Please select--</option>
@@ -54,9 +58,11 @@
             <option>Jormungandr</option>
             <option>Hydra</option>
             <option>Kronos</option>
-        </select><br>
+        </select>
+        <span id="noUpdateHiveFleet" style="color:darkred; visibility:hidden">**No hive fleet</span><br>
         Points:<br>
-        <input type="text" id="updatePoints"><br>
+        <input type="text" id="updatePoints">            
+        <span id="noUpdatePoints" style="color:darkred; visibility:hidden">**No points</span><br>
         <input type="button" id="cancel" value="Cancel" onclick="cancelUpdate()">
         <input type="button" id="save" value="Save changes" onclick="saveUpdate()">
     </span>

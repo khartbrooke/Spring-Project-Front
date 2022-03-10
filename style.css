@@ -60,7 +60,25 @@ body{
 }
 
 .updateBox{
+    border: 2px solid #9932CC;
+    padding: 20px;
+    border-radius: 25px;
     position:fixed;
     left:40%;
-    top:40%;
+    top:40%;   
+    background-image: linear-gradient(
+        135deg,
+        hsl(0deg 0% 63%) 0%,
+        hsl(344deg 0% 68%) 10%,
+        hsl(344deg 0% 72%) 20%,
+        hsl(344deg 0% 77%) 29%,
+        hsl(0deg 0% 81%) 38%,
+        hsl(0deg 1% 84%) 47%,
+        hsl(0deg 2% 87%) 56%,
+        hsl(0deg 3% 90%) 65%,
+        hsl(0deg 2% 85%) 73%,
+        hsl(0deg 1% 77%) 82%,
+        hsl(0deg 0% 70%) 91%,
+        hsl(0deg 0% 62%) 100%
+    ); 
 }
